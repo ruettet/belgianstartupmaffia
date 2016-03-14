@@ -5,31 +5,16 @@
 
     <style>
         body {
-            margin: auto;
-            width: 700px;
             color: #a0a0a0;
             font: 10pt arial;
             background-color: white;
         }
 
         #mynetwork {
-            margin-left: -150px;
-            margin-top: 30px;
-            margin-bottom: 30px;
-            width: 1000px;
+            width: 600px;
             height: 600px;
             border: 1px solid #444444;
             background-color: #222222;
-        }
-
-        #mytable {
-          margin: auto;
-          width: 250px;
-        }
-
-        footer {
-          height: 50px;
-          margin: 30px;
         }
     </style>
 
@@ -42,49 +27,7 @@
 
 <body>
 
-<h1>Belgian Startup Maffia</h1>
-
-<p>Omar Mohout (@omohout) goot voor mij zijn kennis over de Belgische Startupmaffia (zie zijn boek over het Belgische start-uplandschap) in een edgelist, en hoe kan ik dan anders dan er een graaf-visualisatie van maken?</p>
-
 <div id="mynetwork"></div>
-
-<p>Met zo een graaf kan je ook makkelijk berekenen wie het centraalst staat in het hele netwerk, bijvoorbeeld door de graad te berekenen. De graad is niet meer dan het aantal edges die door de vertex lopen.</p>
-<div id="mytable">
-  <table>
-    <tr>
-      <th>Plaats</th>
-      <th>Naam</th>
-      <th>Graad</th>
-    </tr>
-    <tr>
-      <td>1.</td>
-      <td>Michel Akkermans</td>
-      <td>26</td>
-    </tr>
-    <tr>
-      <td>2.</td>
-      <td>Jurgen Ingels</td>
-      <td>16</td>
-    </tr>
-    <tr>
-      <td>3.</td>
-      <td>Jan Vorstermans</td>
-      <td>13</td>
-    </tr>
-    <tr>
-      <td>4.</td>
-      <td>Hummingbird Ventures</td>
-      <td>11</td>
-    </tr>
-    <tr>
-      <td>5.</td>
-      <td>Bart Becks</td>
-      <td>11</td>
-    </tr>
-  </table>
-</div>
-
-<footer>Data van Omar, visualisatie door Tom, allebei bij Sirris.</footer>
 
 <script type="text/javascript">
   var network;
