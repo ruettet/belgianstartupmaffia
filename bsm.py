@@ -1,10 +1,9 @@
 from py2neo import Graph, Path, Node, Relationship
 from codecs import open
 from json import dumps
+from openpyxl import load_workbook
 
-fin = open("/media/sf_datasets/accelerate/Belgische Startup Maffia.csv", "r", "latin1")
-lines = fin.readlines()[1:]
-fin.close()
+bsm = load_workbook("/media/sf_datasets/accelerate/Belgische Startup Maffia.xlsx")["Sheet1"]
 
 # post to neo4j
 graph = Graph("http://belgian_startup_maffia:FFaPiypFOOS4tRB7pBHl@belgianstartupmaffia.sb02.stations.graphenedb.com:24789/db/data/")
@@ -20,10 +19,9 @@ graph.schema.create_uniqueness_constraint("Fund", "name")
 graph.schema.create_uniqueness_constraint("Institute", "name")
 graph.schema.create_uniqueness_constraint("Person", "name")
 
-for line in lines:
-  print [line]
-  from_type, from_name, edge_type, edge_name, to_type, to_name = line.strip(";\r\n").split(";")
-
+for row in bsm.rows[1:]:
+  from_type, from_name, edge_type, edge_name, to_type, to_name = [cell.value for cell in row]
+  print(from_name, edge_type, to_name)
   from_node = graph.merge_one(from_type.strip(), "name", from_name.strip())
   to_node = graph.merge_one(to_type.strip(), "name", to_name.strip())
   from_to = Relationship(from_node, edge_type, to_node)
